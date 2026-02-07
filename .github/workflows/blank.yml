@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>🌾 Digital Agriculture System</h2>
+    <h2>🌾Digital-Agro</h2>
 
     <form action="/login" method="post">
         <label>Username</label><br>
