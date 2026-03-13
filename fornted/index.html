@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AgroGuide | Home</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <h1>AgroGuide</h1>
+        <div>
+            <a href="pages/auth/login.html" style="color:white; margin-right:20px;">Login</a>
+            <button class="btn-primary" onclick="location.href='pages/auth/register.html'">Register</button>
+        </div>
+    </nav>
+
+    <header style="text-align:center; padding: 50px; background: white;">
+        <h2>Empowering Farmers with Technology</h2>
+        <p>Direct Market Access & AI Disease Detection</p>
+    </header>
+
+    <section>
+        <section style="padding: 40px 5%;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 20px;">
+        <h3 style="border-bottom: 3px solid #2d5a27; padding-bottom: 5px;">Market Price (আজকের বাজার দর)</h3>
+        
+        <div class="filter-buttons">
+            <button class="btn-filter active" onclick="loadMarketPrices('all')">সব</button>
+            <button class="btn-filter" onclick="loadMarketPrices('grain')">চাল/ডাল</button>
+            <button class="btn-filter" onclick="loadMarketPrices('veg')">সবজি</button>
+            <button class="btn-filter" onclick="loadMarketPrices('fruit')">ফল</button>
+            <button class="btn-filter" onclick="loadMarketPrices('meat')">মাংস/ডিম</button>
+            <button class="btn-filter" onclick="loadMarketPrices('fish')">মাছ</button>
+            <button class="btn-filter" onclick="loadMarketPrices('spice')">মসলা ও অন্যান্য</button>
+        </div>
+    </div>
+    
+    <div id="market-price-container" class="price-grid"></div>
+</section>
+    </section>
+
+    <script src="assets/js/market.js"></script>
+</body>
+</html>

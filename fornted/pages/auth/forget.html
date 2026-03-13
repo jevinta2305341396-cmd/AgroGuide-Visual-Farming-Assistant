@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reset Password | AgroGuide</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div style="background: white; padding: 40px; border-radius: 10px; width: 350px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center;">
+        <h2 style="color: var(--primary-green);">Recover Account</h2>
+        <p style="font-size: 0.9rem; color: #666;">Enter your email to receive a password reset link.</p>
+        <form onsubmit="alert('Reset link sent to your email!'); return false;">
+            <input type="email" placeholder="Registered Email" required style="width: 100%; padding: 12px; margin: 15px 0; border: 1px solid #ddd; border-radius: 5px;">
+            <button type="submit" class="btn-primary" style="width: 100%;">Send Reset Link</button>
+        </form>
+        <p style="margin-top: 20px;"><a href="login.html" style="color: var(--light-green);">Back to Login</a></p>
+    </div>
+</body>
+</html>

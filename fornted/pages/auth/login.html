@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | AgroGuide</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f9f4;">
+    <div style="background: white; padding: 40px; border-radius: 15px; width: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <h2 style="text-align: center; color: #2d5a27;">Welcome Back</h2>
+        <p style="text-align: center; font-size: 0.9rem; color: #666;">Login to access your Agro Dashboard</p>
+        
+        <form id="login-form">
+            <div style="margin-bottom: 15px;">
+                <label>Username</label>
+                <input type="text" id="username" placeholder="Enter username" required 
+                       style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="••••••••" required 
+                       style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-top: 5px;">
+            </div>
+            
+            <button type="submit" class="btn-primary" style="width: 100%; padding: 12px; font-weight: bold;">Login</button>
+        </form>
+
+        <div style="text-align: center; margin-top: 20px; font-size: 0.85rem;">
+            <a href="forget.html" style="color: #4CAF50; text-decoration: none;">Forgot Password?</a><br><br>
+            <span>Don't have an account? <a href="register.html" style="color: #2d5a27; font-weight: bold;">Register</a></span>
+        </div>
+    </div>
+
+    <script src="../../assets/js/auth.js"></script>
+</body>
+</html>

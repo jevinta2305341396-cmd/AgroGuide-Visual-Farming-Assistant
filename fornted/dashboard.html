@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | AgroGuide</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .dashboard-container { display: flex; min-height: 100vh; }
+        .sidebar { width: 250px; background: #2d5a27; color: white; padding: 20px; }
+        .main-content { flex: 1; padding: 30px; }
+        .card-box { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .quick-card { background: white; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <h2>AgroGuide</h2>
+            <p>Welcome, Farmer!</p>
+            <hr>
+            <nav style="flex-direction: column; background: none; padding: 0;">
+                <a href="index.html" style="color:white; margin: 10px 0;">Home</a>
+                <a href="pages/disease/upload.html" style="color:white; margin: 10px 0;">AI Disease Check</a>
+                <a href="pages/guide.html" style="color:white; margin: 10px 0;">Farming Guide</a>
+                <a href="#" style="color:white; margin: 10px 0;">Logout</a>
+            </nav>
+        </div>
+
+        <div class="main-content">
+            <h1>Farmer Dashboard</h1>
+            <div class="card-box">
+                <div class="quick-card" onclick="location.href='pages/disease/upload.html'">
+                    <h3>📸 AI Check</h3>
+                    <p>Detect crop diseases</p>
+                </div>
+                <div class="quick-card">
+                    <h3>🌾 My Crops</h3>
+                    <p>Manage your listings</p>
+                </div>
+                <div class="quick-card">
+                    <h3>💰 Earnings</h3>
+                    <p>Check your sales</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Live Market Trends</h3>
+            <div id="market-price-container" class="price-grid"></div>
+        </div>
+    </div>
+    <script src="assets/js/market.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+:root {
+    --primary-green: #2d5a27;
+    --light-green: #4CAF50;
+    --accent-gold: #ffcc00;
+    --bg-light: #f4f9f4;
+    --text-dark: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+nav {
+    background: var(--primary-green);
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.price-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-left: 5px solid var(--light-green);
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--light-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover { background: var(--primary-green); }
+/* style.css এ যোগ করুন */
+.price-text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-green);
+    margin: 10px 0;
+}
+
+.badge {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--light-green) !important;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+/* Sidebar Links Hover Effect */
+.sidebar nav a {
+    display: block;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    padding-left: 25px;
+}
+
+/* Dashboard Quick Cards Hover */
+.quick-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: var(--light-green);
+}
+
+/* Responsive Image Preview */
+#image-preview {
+    border: 3px solid var(--light-green);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-height: 300px;
+    object-fit: cover;
+    margin: 20px auto;
+}
+
+/* Auth Pages Background */
+.login-body {
+    background: linear-gradient(135deg, #2d5a27 0%, #4CAF50 100%);
+}
+/* ১০০টি প্রোডাক্টের গ্রিড লেআউট */
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* ছোট স্ক্রিনেও সুন্দর দেখাবে */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* প্রতিটি প্রোডাক্ট কার্ডের ডিজাইন */
+.price-card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-color: #4CAF50;
+}
+
+/* প্রোডাক্ট ইমেজের প্লেসহোল্ডার */
+.img-placeholder {
+    width: 100%;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    background-color: #f0f0f0; /* ছবি না থাকলে এই রঙ দেখাবে */
+    margin-bottom: 12px;
+}
+
+/* প্রোডাক্টের নাম ও দামের স্টাইল */
+.price-card h4 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.price-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2d5a27;
+    margin-bottom: 10px;
+}
+
+/* ক্যাটাগরি ট্যাগ */
+.category-tag {
+    font-size: 10px;
+    background: #e8f5e9;
+    color: #2d5a27;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+/* ফিল্টার বাটনের স্টাইল */
+.btn-filter {
+    padding: 8px 15px;
+    border: 1px solid #2d5a27;
+    background: white;
+    color: #2d5a27;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-filter:hover, .btn-filter.active {
+    background: #2d5a27;
+    color: white;
+}
