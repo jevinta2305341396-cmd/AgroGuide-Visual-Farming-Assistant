@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Analysis Result | AgroGuide</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body {
+            margin: 0;
+            background: #f4f9f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .result-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* বাম পাশের অংশ: আপলোড করা ছবি */
+        .image-preview-section {
+            flex: 1;
+            min-width: 350px;
+            background: #e8f5e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-preview-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* ডান পাশের অংশ: রোগ নির্ণয়ের তথ্য */
+        .analysis-details {
+            flex: 1.2;
+            padding: 40px;
+            min-width: 350px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #ffeaa7;
+            color: #d35400;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        h2 { color: #2d5a27; margin: 0 0 10px 0; font-size: 1.8rem; }
+        
+        .confidence-meter {
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: #4CAF50;
+            width: 85%; /* এটি JS দিয়ে ডাইনামিক হবে */
+        }
+
+        .treatment-box {
+            background: #f9fff9;
+            border-left: 5px solid #2d5a27;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .treatment-box h4 { margin: 0 0 10px 0; color: #2d5a27; }
+
+        .btn-group {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-back {
+            background: #2d5a27;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover { background: #1b3d18; }
+        
+        .btn-expert {
+            border: 2px solid #2d5a27;
+            color: #2d5a27;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="result-container">
+        <a href="upload.html" style="text-decoration: none; color: #666; font-size: 0.9rem;">
+            <i class="fas fa-arrow-left"></i> রোগ শনাক্তকরণে ফিরে যান
+        </a>
+
+        <h1 style="color: #2d5a27; margin-top: 20px;">বিশ্লেষণ ফলাফল (Analysis Result)</h1>
+
+        <div class="result-card">
+            <div class="image-preview-section">
+                <img id="analyzed-image" src="../../assets/images/logo.png" alt="Uploaded Plant">
+            </div>
+
+            <div class="analysis-details">
+                <div class="status-badge"><i class="fas fa-check-circle"></i> সফলভাবে শনাক্ত করা হয়েছে</div>
+                
+                <h2 id="disease-name">ধানের ব্লাস্ট রোগ (Rice Blast)</h2>
+                <p style="color: #666;">শনাক্তকরণের নির্ভুলতা (Confidence): <span id="confidence-score">85%</span></p>
+                
+                <div class="confidence-meter">
+                    <div class="confidence-fill" id="confidence-bar"></div>
+                </div>
+
+                <div class="treatment-box">
+                    <h4><i class="fas fa-hand-holding-medical"></i> বিশেষজ্ঞ পরামর্শ:</h4>
+                    <p id="treatment-steps">
+                        ১. আক্রান্ত গাছগুলো সরিয়ে ফেলুন।<br>
+                        ২. নাইট্রোজেন সারের অতিরিক্ত ব্যবহার এড়িয়ে চলুন।<br>
+                        ৩. ট্রাইসাইক্লাজল জাতীয় ছত্রাকনাশক সঠিক মাত্রায় স্প্রে করুন।
+                    </p>
+                </div>
+
+                <div class="btn-group">
+                    <a href="../../dashboard.html" class="btn-back">ড্যাশবোর্ড</a>
+                    <a href="../guide.html" class="btn-expert">বিস্তারিত গাইড দেখুন</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>
