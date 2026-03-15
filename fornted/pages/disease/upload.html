@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Disease Detection | AgroGuide</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body {
+            margin: 0;
+            background: #f4f9f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .upload-wrapper {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .upload-card {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 2px dashed #2d5a27;
+            transition: 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .upload-card:hover {
+            background: #f9fff9;
+            border-color: #4CAF50;
+        }
+
+        .upload-card i {
+            font-size: 60px;
+            color: #2d5a27;
+            margin-bottom: 20px;
+        }
+
+        .upload-card h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .upload-card p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* হিডেন ফাইল ইনপুট */
+        #file-input {
+            display: none;
+        }
+
+        .btn-upload {
+            background: #2d5a27;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-upload:hover {
+            background: #1b3d18;
+            transform: scale(1.05);
+        }
+
+        .preview-container {
+            margin-top: 30px;
+            display: none;
+        }
+
+        #image-preview {
+            max-width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .loading-overlay {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #2d5a27;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="upload-wrapper">
+        <a href="../../dashboard.html" style="text-decoration: none; color: #2d5a27; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-arrow-left"></i> ড্যাশবোর্ডে ফিরে যান
+        </a>
+
+        <div style="margin-top: 30px; margin-bottom: 40px;">
+            <h1 style="color: #2d5a27; font-size: 2.5rem;">AI রোগ শনাক্তকরণ</h1>
+            <p style="color: #555;">আপনার ফসলের আক্রান্ত অংশের ছবি তুলুন অথবা আপলোড করুন। আমাদের এআই সাথে সাথে রোগ নির্ণয় করে সমাধান দিবে।</p>
+        </div>
+
+        <div class="upload-card" onclick="document.getElementById('file-input').click()">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h2>ছবি নির্বাচন করুন</h2>
+            <p>এখানে ক্লিক করুন অথবা ড্র্যাগ করে ছবি ছেড়ে দিন</p>
+            <input type="file" id="file-input" accept="image/*" onchange="previewImage(event)">
+            <button class="btn-upload">Upload Image</button>
+        </div>
+
+        <div id="preview-container" class="preview-container">
+            <h3>ছবি প্রিভিউ:</h3>
+            <img id="image-preview" src="#" alt="Preview">
+            <br><br>
+            <button onclick="startAnalysis()" class="btn-upload" style="background: #4CAF50;">বিশ্লেষণ শুরু করুন <i class="fas fa-bolt"></i></button>
+        </div>
+
+        <div id="loading" class="loading-overlay">
+            <div class="loader"></div>
+            <p>আমাদের এআই ছবিটি বিশ্লেষণ করছে, দয়া করে অপেক্ষা করুন...</p>
+        </div>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('image-preview');
+                output.src = reader.result;
+                document.getElementById('preview-container').style.display = 'block';
+                // স্মুথ স্ক্রল টু প্রিভিউ
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function startAnalysis() {
+            // লোডিং দেখানো
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('preview-container').style.opacity = '0.5';
+
+            // সিমুলেশন: ৩ সেকেন্ড পর রেজাল্ট পেজে নিয়ে যাবে
+            // রিয়েল প্রজেক্টে এখানে এপিআই কল হবে
+            setTimeout(() => {
+                window.location.href = 'result.html';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
