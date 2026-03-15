@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recover Account | AgroGuide</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;
+             background: linear-gradient(rgba(45, 90, 39, 0.75), rgba(27, 61, 24, 0.75)), 
+             url('https://images.unsplash.com/photo-1495539406979-bf61750d38ad?auto=format&fit=crop&w=1500&q=80'); 
+             background-size: cover; background-position: center; font-family: 'Segoe UI', sans-serif;">
+
+    <div style="background: rgba(255, 255, 255, 0.92); padding: 40px; border-radius: 20px; width: 380px; 
+                box-shadow: 0 15px 35px rgba(0,0,0,0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); text-align: center;">
+        
+        <div style="background: #2d5a27; width: 60px; height: 60px; border-radius: 50%; display: flex; 
+                    justify-content: center; align-items: center; margin: 0 auto 20px;">
+            <span style="color: white; font-size: 30px;">🔑</span>
+        </div>
+
+        <h2 style="color: #2d5a27; margin-bottom: 10px; font-size: 1.8rem;">Recover Account</h2>
+        <p style="font-size: 0.95rem; color: #444; line-height: 1.5; margin-bottom: 25px;">
+            চিন্তা করবেন না! আপনার নিবন্ধিত ইমেলটি দিন, আমরা আপনাকে একটি পাসওয়ার্ড রিসেট লিঙ্ক পাঠিয়ে দিচ্ছি।
+        </p>
+
+        <form onsubmit="alert('রিসেট লিঙ্কটি আপনার ইমেলে পাঠানো হয়েছে!'); return false;">
+            <div style="text-align: left; margin-bottom: 15px;">
+                <label style="font-weight: 600; color: #333; font-size: 0.9rem; margin-left: 5px;">Registered Email</label>
+                <input type="email" placeholder="example@email.com" required 
+                       style="width: 100%; padding: 12px; margin-top: 8px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; outline: none; background: white;">
+            </div>
+
+            <button type="submit" class="btn-primary" 
+                    style="width: 100%; padding: 14px; font-weight: bold; background-color: #2d5a27; color: white; 
+                           border: none; border-radius: 8px; cursor: pointer; font-size: 16px; transition: 0.3s; box-shadow: 0 4px 10px rgba(45,90,39,0.3);">
+                SEND RESET LINK
+            </button>
+        </form>
+
+        <div style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+            <p style="margin: 0;">
+                <a href="login.html" style="color: #2d5a27; text-decoration: none; font-weight: bold; font-size: 0.9rem;">
+                    <i class="fas fa-arrow-left"></i> Back to Login
+                </a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
