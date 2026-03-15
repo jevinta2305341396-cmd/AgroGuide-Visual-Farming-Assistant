@@ -1,9 +1,12 @@
 from rest_framework import serializers
-from .models import User, Crop
+from .models import MarketPrice, FarmerListing
 
-class CropSerializer(serializers.ModelSerializer):
-    farmer_name = serializers.ReadOnlyField(source='farmer.username')
-
+class MarketPriceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Crop
-        fields = ['id', 'farmer_name', 'name', 'category', 'price', 'stock_kg', 'image_url', 'created_at']
+        model = MarketPrice
+        fields = '__all__'
+
+class FarmerListingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FarmerListing
+        fields = '__all__'

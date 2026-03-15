@@ -117,5 +117,50 @@ function loadMarketPrices(filter = 'all') {
 
 // ফিল্টার বাটন হ্যান্ডলিং
 document.addEventListener('DOMContentLoaded', () => {
-    loadMarketPrices('all');
+    function loadMarketPrices(filter = 'all') {
+    const container = document.getElementById('market-price-container');
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    const filteredData = filter === 'all' ? fullMarketData : fullMarketData.filter(i => i.cat === filter);
+
+    filteredData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'price-card';
+        
+        // ছবির জন্য সোর্স তৈরি
+        // প্রথমে আপনার লোকাল ফোল্ডার চেক করবে, না পেলে অনলাইন থেকে ডেমো ছবি নিবে
+        const localImgPath = `assets/images/crops/${item.img}`;
+        const fallbackImg = `https://source.unsplash.com/400x300/?${item.name},agriculture`;
+
+        card.innerHTML = `
+            <div class="card-img-wrapper" style="width: 100%; height: 150px; overflow: hidden; border-radius: 10px 10px 0 0;">
+                <img src="${localImgPath}" 
+                     alt="${item.name}" 
+                     style="width: 100%; height: 100%; object-fit: cover;"
+                     onerror="this.src='https://via.placeholder.com/400x300?text=${item.name}'">
+            </div>
+            <div style="padding: 15px;">
+                <h4 style="margin: 0; color: #2d5a27;">${item.name}</h4>
+                <p class="price-text" style="color: #4CAF50; font-weight: bold; margin: 5px 0;">${item.price}</p>
+                <span class="category-tag" style="font-size: 10px; background: #e8f5e9; padding: 3px 8px; border-radius: 10px;">${item.cat.toUpperCase()}</span>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
 });
+function searchMarket() {
+    const searchTerm = document.getElementById('market-search').value.toLowerCase();
+    const cards = document.getElementsByClassName('price-card');
+
+    for (let card of cards) {
+        const productName = card.getElementsByTagName('h4')[0].innerText.toLowerCase();
+        if (productName.includes(searchTerm)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    }
+}

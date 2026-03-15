@@ -1,7 +1,11 @@
 from rest_framework import viewsets
-from .models import Crop
-from .serializers import CropSerializer
+from .models import MarketPrice, FarmerListing
+from .serializers import MarketPriceSerializer, FarmerListingSerializer
 
-class CropViewSet(viewsets.ModelViewSet):
-    queryset = Crop.objects.all().order_by('-created_at')
-    serializer_class = CropSerializer
+class MarketPriceViewSet(viewsets.ModelViewSet):
+    queryset = MarketPrice.objects.all()
+    serializer_class = MarketPriceSerializer
+
+class FarmerListingViewSet(viewsets.ModelViewSet):
+    queryset = FarmerListing.objects.all()
+    serializer_class = FarmerListingSerializer
