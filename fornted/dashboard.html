@@ -7,19 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* আগের স্ট্রাকচার ঠিক রেখে প্রফেশনাল থিম */
         body {
             margin: 0;
-            background-color: #f0f4f0; /* হালকা ঘাস রঙ */
+            background-color: #f0f4f0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        .dashboard-container { 
-            display: flex; 
-            min-height: 100vh; 
-        }
-
-        /* Sidebar Theme */
+        .dashboard-container { display: flex; min-height: 100vh; }
         .sidebar { 
             width: 260px; 
             background: linear-gradient(180deg, #1b3d18 0%, #2d5a27 100%); 
@@ -27,108 +20,33 @@
             padding: 30px 20px;
             box-shadow: 4px 0 15px rgba(0,0,0,0.1);
         }
-
-        .sidebar h2 {
-            font-size: 24px;
-            letter-spacing: 1px;
-            border-bottom: 2px solid rgba(255,255,255,0.1);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-
-        .sidebar p {
-            background: rgba(255,255,255,0.1);
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-        }
-
-        .sidebar nav a {
-            display: block;
-            color: #d1e7d1;
-            text-decoration: none;
-            padding: 12px 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            transition: 0.3s;
-            font-weight: 500;
-        }
-
-        .sidebar nav a:hover {
-            background: #4CAF50;
-            color: white;
-            transform: translateX(5px);
-        }
-
-        /* Main Content Theme */
-        .main-content { 
-            flex: 1; 
-            padding: 40px; 
-            background: url('https://www.transparenttextures.com/patterns/leaf.png'); /* হালকা টেক্সচার */
-        }
-
-        h1 {
-            color: #2d5a27;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            border-left: 6px solid #2d5a27;
-            padding-left: 15px;
-        }
-
-        /* Card Box Styling */
-        .card-box { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 25px; 
-        }
-
-        .quick-card { 
-            background: white; 
-            padding: 30px 20px; 
-            border-radius: 15px; 
-            text-align: center; 
-            cursor: pointer; 
-            border: none; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .quick-card:hover { 
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(45, 90, 39, 0.15);
-            background: #f9fff9;
-        }
-
-        .quick-card h3 {
-            color: #2d5a27;
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .quick-card p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Market Trends Grid */
-        .price-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        /* Scrollbar */
+        .sidebar h2 { font-size: 24px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 20px; }
+        .sidebar p { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.9rem; }
+        .sidebar nav a { display: block; color: #d1e7d1; text-decoration: none; padding: 12px 15px; margin: 10px 0; border-radius: 8px; transition: 0.3s; font-weight: 500; }
+        .sidebar nav a:hover { background: #4CAF50; color: white; transform: translateX(5px); }
+        .main-content { flex: 1; padding: 40px; background: url('https://www.transparenttextures.com/patterns/leaf.png'); }
+        h1 { color: #2d5a27; font-size: 2rem; margin-bottom: 30px; border-left: 6px solid #2d5a27; padding-left: 15px; }
+        .card-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .quick-card { background: white; padding: 30px 20px; border-radius: 15px; text-align: center; cursor: pointer; border: none; box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .quick-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(45, 90, 39, 0.15); background: #f9fff9; }
+        .quick-card h3 { color: #2d5a27; font-size: 1.4rem; margin-bottom: 10px; }
+        .quick-card p { color: #666; font-size: 0.95rem; }
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-thumb { background: #2d5a27; border-radius: 10px; }
 
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: white; padding: 30px; border-radius: 15px; max-width: 600px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #333; }
+        .details-text { margin-bottom: 15px; font-size: 1rem; color: #444; line-height: 1.6; }
+        .details-text strong { color: #2d5a27; }
     </style>
 </head>
 <body>
     <div class="dashboard-container">
         <div class="sidebar">
             <h2><i class="fas fa-seedling"></i> AgroGuide</h2>
-            <p><i class="fas fa-user-circle"></i> Welcome Back</p>
+            <p><i class="fas fa-user-circle"></i> Welcome, Farmer!</p>
             <hr style="opacity: 0.2; margin: 20px 0;">
             <nav style="flex-direction: column; background: none; padding: 0;">
                 <a href="index.html"><i class="fas fa-home"></i> Home</a>
@@ -156,16 +74,106 @@
                 </div>
             </div>
 
+            <div style="margin-top: 50px;">
+                <h3 style="color: #2d5a27; font-size: 1.5rem;"><i class="fas fa-cloud-sun"></i> মৌসুম ভিত্তিক ফসল নির্দেশিকা</h3>
+                <div class="card-box" style="margin-top: 20px;">
+                    <div class="quick-card" onclick="fetchCropsBySeason('kharif1', 'খরিপ-১ (গ্রীষ্মকাল)')" style="background: #fff3e0;">
+                        <h3>খরিপ-১</h3>
+                        <p>গ্রীষ্মকালীন ফসলের তালিকা</p>
+                    </div>
+                    <div class="quick-card" onclick="fetchCropsBySeason('kharif2', 'খরিপ-২ (বর্ষাকাল)')" style="background: #e3f2fd;">
+                        <h3>খরিপ-২</h3>
+                        <p>বর্ষাকালীন ফসলের তালিকা</p>
+                    </div>
+                    <div class="quick-card" onclick="fetchCropsBySeason('robi', 'রবি (শীতকাল)')" style="background: #e8f5e9;">
+                        <h3>রবি</h3>
+                        <p>শীতকালীন ফসলের তালিকা</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="crop-list-section" style="margin-top: 40px; display: none;">
+                <h3 id="season-heading" style="color: #2d5a27; font-size: 1.5rem; border-bottom: 2px solid #2d5a27; display: inline-block; padding-bottom: 5px;"></h3>
+                <div id="seasonal-crops-container" class="price-grid"></div>
+            </div>
+
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 50px;">
                 <h3 style="color: #2d5a27; font-size: 1.5rem;"><i class="fas fa-chart-line"></i> Live Market Trends</h3>
                 <span style="background: #2d5a27; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px;">Live Data</span>
             </div>
+            <div id="market-price-container" class="price-grid"></div>
+        </div>
+    </div>
+
+    <div id="crop-details-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modal-crop-name" style="color: #2d5a27; margin-top: 0; font-size: 2rem;"></h2>
+            <img id="modal-crop-image" src="" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             
-            <div id="market-price-container" class="price-grid">
-                </div>
+            <p class="details-text"><strong><i class="fas fa-calendar-alt"></i> বপনের সময়:</strong> <span id="modal-planting"></span></p>
+            <p class="details-text"><strong><i class="fas fa-leaf"></i> সার প্রয়োগ:</strong> <span id="modal-fertilizer"></span></p>
+            <p class="details-text"><strong><i class="fas fa-tint"></i> সেচ ব্যবস্থা:</strong> <span id="modal-irrigation"></span></p>
+            <p class="details-text"><strong><i class="fas fa-info-circle"></i> বিস্তারিত বিবরণ:</strong> <span id="modal-description"></span></p>
         </div>
     </div>
 
     <script src="assets/js/market.js"></script>
+    <script>
+        async function fetchCropsBySeason(seasonCode, seasonName) {
+            document.getElementById('crop-list-section').style.display = 'block';
+            document.getElementById('season-heading').innerText = seasonName + " এর ফসলসমূহ";
+            
+            const container = document.getElementById('seasonal-crops-container');
+            container.innerHTML = '<p>লোড হচ্ছে...</p>';
+
+            try {
+                const response = await fetch(`http://127.0.0.1:8000/api/crops/${seasonCode}/`);
+                const crops = await response.json();
+                
+                container.innerHTML = '';
+                
+                if(crops.length === 0) {
+                    container.innerHTML = '<p style="color: red;">এই সিজনের কোনো ফসল যুক্ত করা হয়নি।</p>';
+                    return;
+                }
+
+                crops.forEach(crop => {
+                    const encodedCrop = encodeURIComponent(JSON.stringify(crop));
+                    const card = document.createElement('div');
+                    card.className = 'quick-card';
+                    card.style.padding = '15px';
+                    card.innerHTML = `
+                        <img src="assets/images/crops/${crop.image_name}" style="width: 100%; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.src='https://via.placeholder.com/200x120?text=${crop.name}'">
+                        <h4 style="margin: 5px 0; color: #2d5a27; font-size: 1.2rem;">${crop.name}</h4>
+                        <button onclick="openModal('${encodedCrop}')" style="margin-top: 10px; padding: 8px 15px; background: #2d5a27; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%; transition: 0.3s;">বিস্তারিত দেখুন</button>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                container.innerHTML = '<p style="color: red;">ডাটা লোড করতে সমস্যা হয়েছে।</p>';
+            }
+        }
+
+        function openModal(cropDataString) {
+            const crop = JSON.parse(decodeURIComponent(cropDataString));
+            
+            document.getElementById('modal-crop-name').innerText = crop.name;
+            const imgElement = document.getElementById('modal-crop-image');
+            imgElement.src = `assets/images/crops/${crop.image_name}`;
+            imgElement.onerror = function() { this.src = `https://via.placeholder.com/600x250?text=${crop.name}`; };
+            
+            document.getElementById('modal-planting').innerText = crop.planting_time;
+            document.getElementById('modal-fertilizer').innerText = crop.fertilizer;
+            document.getElementById('modal-irrigation').innerText = crop.irrigation;
+            document.getElementById('modal-description').innerText = crop.description;
+            
+            document.getElementById('crop-details-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('crop-details-modal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
