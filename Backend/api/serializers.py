@@ -1,12 +1,7 @@
 from rest_framework import serializers
-from .models import MarketPrice, FarmerListing
+from .models import Product
 
-class MarketPriceSerializer(serializers.ModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MarketPrice
-        fields = '__all__'
-
-class FarmerListingSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = FarmerListing
+        model = Product
         fields = '__all__'

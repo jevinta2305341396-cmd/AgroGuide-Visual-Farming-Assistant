@@ -1,11 +1,10 @@
-from rest_framework import viewsets
-from .models import MarketPrice, FarmerListing
-from .serializers import MarketPriceSerializer, FarmerListingSerializer
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .models import Product
+from .serializers import ProductSerializer
 
-class MarketPriceViewSet(viewsets.ModelViewSet):
-    queryset = MarketPrice.objects.all()
-    serializer_class = MarketPriceSerializer
-
-class FarmerListingViewSet(viewsets.ModelViewSet):
-    queryset = FarmerListing.objects.all()
-    serializer_class = FarmerListingSerializer
+@api_view(['GET'])
+def get_products(request):
+    products = Product.objects.all()
+    serializer = ProductSerializer(products, many=True)
+    return Response(serializer.data)
