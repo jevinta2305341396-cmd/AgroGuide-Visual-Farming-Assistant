@@ -46,3 +46,31 @@ for s in seasons:
         )
 
 print("90 Crops Added Successfully!")
+import os
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'agro_project.settings')
+django.setup()
+
+from api.models import CropDetails
+
+data_list = [
+    # উদাহরণস্বরূপ একটি ডাটা
+    {
+        "name": "আউশ ধান", 
+        "season": "kharif1", 
+        "planting_time": "মার্চ - এপ্রিল", 
+        "fertilizer": "ইউরিয়া, টিএসপি, এমওপি", 
+        "irrigation": "বৃষ্টি নির্ভর, প্রয়োজনে সেচ", 
+        "description": "গ্রীষ্মকালীন প্রধান ধান।", 
+        "image_name": "aush.jpg",
+        "suitable_districts": "কুমিল্লা, নোয়াখালী, সিলেট, ময়মনসিংহ",
+        "soil_type": "এঁটেল ও দোআঁশ মাটি"
+    },
+    # ... বাকি ডাটাগুলো একইভাবে যোগ করুন
+]
+
+for item in data_list:
+    CropDetails.objects.update_or_create(name=item['name'], season=item['season'], defaults=item)
+
+print("Crops Updated Successfully!")

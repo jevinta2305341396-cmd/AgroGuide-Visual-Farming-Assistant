@@ -7,19 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        body {
-            margin: 0;
-            background-color: #f0f4f0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        body { margin: 0; background-color: #f0f4f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .dashboard-container { display: flex; min-height: 100vh; }
-        .sidebar { 
-            width: 260px; 
-            background: linear-gradient(180deg, #1b3d18 0%, #2d5a27 100%); 
-            color: white; 
-            padding: 30px 20px;
-            box-shadow: 4px 0 15px rgba(0,0,0,0.1);
-        }
+        .sidebar { width: 260px; background: linear-gradient(180deg, #1b3d18 0%, #2d5a27 100%); color: white; padding: 30px 20px; box-shadow: 4px 0 15px rgba(0,0,0,0.1); }
         .sidebar h2 { font-size: 24px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 20px; }
         .sidebar p { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.9rem; }
         .sidebar nav a { display: block; color: #d1e7d1; text-decoration: none; padding: 12px 15px; margin: 10px 0; border-radius: 8px; transition: 0.3s; font-weight: 500; }
@@ -38,8 +28,8 @@
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; }
         .modal-content { background: white; padding: 30px; border-radius: 15px; max-width: 600px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative; }
         .close-btn { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #333; }
-        .details-text { margin-bottom: 15px; font-size: 1rem; color: #444; line-height: 1.6; }
-        .details-text strong { color: #2d5a27; }
+        .details-text { margin-bottom: 12px; font-size: 1rem; color: #444; line-height: 1.5; padding: 10px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #2d5a27; }
+        .details-text strong { color: #2d5a27; display: inline-block; width: 130px; }
     </style>
 </head>
 <body>
@@ -75,28 +65,29 @@
             </div>
 
             <div style="margin-top: 50px;">
-                <h3 style="color: #2d5a27; font-size: 1.5rem;"><i class="fas fa-cloud-sun"></i> মৌসুম ভিত্তিক ফসল নির্দেশিকা</h3>
-                <div class="card-box" style="margin-top: 20px;">
-                    <div class="quick-card" onclick="fetchCropsBySeason('kharif1', 'খরিপ-১ (গ্রীষ্মকাল)')" style="background: #fff3e0;">
-                        <h3>খরিপ-১</h3>
-                        <p>গ্রীষ্মকালীন ফসলের তালিকা</p>
+                <h2 style="color: #2d5a27; font-size: 1.8rem; margin-bottom: 20px;"><i class="fas fa-leaf"></i> সকল মৌসুমের ফসল নির্দেশিকা</h2>
+
+                <div style="background: #fff3e0; padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <h3 style="color: #e65100; border-bottom: 2px solid #e65100; display: inline-block; padding-bottom: 5px; margin-bottom: 15px;">খরিপ-১ (গ্রীষ্মকাল)</h3>
+                    <div id="kharif1-container" class="price-grid">
+                        <p>ডাটা লোড হচ্ছে...</p>
                     </div>
-                    <div class="quick-card" onclick="fetchCropsBySeason('kharif2', 'খরিপ-২ (বর্ষাকাল)')" style="background: #e3f2fd;">
-                        <h3>খরিপ-২</h3>
-                        <p>বর্ষাকালীন ফসলের তালিকা</p>
+                </div>
+
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <h3 style="color: #1565c0; border-bottom: 2px solid #1565c0; display: inline-block; padding-bottom: 5px; margin-bottom: 15px;">খরিপ-২ (বর্ষাকাল)</h3>
+                    <div id="kharif2-container" class="price-grid">
+                        <p>ডাটা লোড হচ্ছে...</p>
                     </div>
-                    <div class="quick-card" onclick="fetchCropsBySeason('robi', 'রবি (শীতকাল)')" style="background: #e8f5e9;">
-                        <h3>রবি</h3>
-                        <p>শীতকালীন ফসলের তালিকা</p>
+                </div>
+
+                <div style="background: #e8f5e9; padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <h3 style="color: #2e7d32; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 5px; margin-bottom: 15px;">রবি (শীতকাল)</h3>
+                    <div id="robi-container" class="price-grid">
+                        <p>ডাটা লোড হচ্ছে...</p>
                     </div>
                 </div>
             </div>
-
-            <div id="crop-list-section" style="margin-top: 40px; display: none;">
-                <h3 id="season-heading" style="color: #2d5a27; font-size: 1.5rem; border-bottom: 2px solid #2d5a27; display: inline-block; padding-bottom: 5px;"></h3>
-                <div id="seasonal-crops-container" class="price-grid"></div>
-            </div>
-
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 50px;">
                 <h3 style="color: #2d5a27; font-size: 1.5rem;"><i class="fas fa-chart-line"></i> Live Market Trends</h3>
                 <span style="background: #2d5a27; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px;">Live Data</span>
@@ -111,30 +102,42 @@
             <h2 id="modal-crop-name" style="color: #2d5a27; margin-top: 0; font-size: 2rem;"></h2>
             <img id="modal-crop-image" src="" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             
-            <p class="details-text"><strong><i class="fas fa-calendar-alt"></i> বপনের সময়:</strong> <span id="modal-planting"></span></p>
-            <p class="details-text"><strong><i class="fas fa-leaf"></i> সার প্রয়োগ:</strong> <span id="modal-fertilizer"></span></p>
-            <p class="details-text"><strong><i class="fas fa-tint"></i> সেচ ব্যবস্থা:</strong> <span id="modal-irrigation"></span></p>
-            <p class="details-text"><strong><i class="fas fa-info-circle"></i> বিস্তারিত বিবরণ:</strong> <span id="modal-description"></span></p>
+            <div class="details-text"><strong><i class="fas fa-map-marker-alt"></i> উপযুক্ত জেলা:</strong> <span id="modal-districts"></span></div>
+            <div class="details-text"><strong><i class="fas fa-mountain"></i> মাটির ধরন:</strong> <span id="modal-soil"></span></div>
+            <div class="details-text"><strong><i class="fas fa-calendar-alt"></i> বপনের সময়:</strong> <span id="modal-planting"></span></div>
+            <div class="details-text"><strong><i class="fas fa-leaf"></i> সার প্রয়োগ:</strong> <span id="modal-fertilizer"></span></div>
+            <div class="details-text"><strong><i class="fas fa-tint"></i> সেচ ব্যবস্থা:</strong> <span id="modal-irrigation"></span></div>
+            <div class="details-text" style="background: none; border: none; padding: 0; margin-top: 15px;">
+                <strong style="width: 100%; display: block; margin-bottom: 5px;"><i class="fas fa-info-circle"></i> বিস্তারিত চাষাবাদ পদ্ধতি:</strong> 
+                <span id="modal-description" style="display: block; text-align: justify;"></span>
+            </div>
         </div>
     </div>
 
     <script src="assets/js/market.js"></script>
     <script>
-        async function fetchCropsBySeason(seasonCode, seasonName) {
-            document.getElementById('crop-list-section').style.display = 'block';
-            document.getElementById('season-heading').innerText = seasonName + " এর ফসলসমূহ";
-            
-            const container = document.getElementById('seasonal-crops-container');
-            container.innerHTML = '<p>লোড হচ্ছে...</p>';
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAllSeasons();
+        });
+
+        async function loadAllSeasons() {
+            await fetchAndRenderCrops('kharif1', 'kharif1-container');
+            await fetchAndRenderCrops('kharif2', 'kharif2-container');
+            await fetchAndRenderCrops('robi', 'robi-container');
+        }
+
+        async function fetchAndRenderCrops(seasonCode, containerId) {
+            const container = document.getElementById(containerId);
 
             try {
                 const response = await fetch(`http://127.0.0.1:8000/api/crops/${seasonCode}/`);
-                const crops = await response.json();
+                if (!response.ok) throw new Error('Network response was not ok');
                 
-                container.innerHTML = '';
+                const crops = await response.json();
+                container.innerHTML = ''; 
                 
                 if(crops.length === 0) {
-                    container.innerHTML = '<p style="color: red;">এই সিজনের কোনো ফসল যুক্ত করা হয়নি।</p>';
+                    container.innerHTML = '<p style="color: red;">এই সিজনের কোনো ফসল যুক্ত করা হয়নি।</p>';
                     return;
                 }
 
@@ -143,15 +146,18 @@
                     const card = document.createElement('div');
                     card.className = 'quick-card';
                     card.style.padding = '15px';
+                    card.style.background = 'white'; 
+                    
                     card.innerHTML = `
                         <img src="assets/images/crops/${crop.image_name}" style="width: 100%; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.src='https://via.placeholder.com/200x120?text=${crop.name}'">
-                        <h4 style="margin: 5px 0; color: #2d5a27; font-size: 1.2rem;">${crop.name}</h4>
-                        <button onclick="openModal('${encodedCrop}')" style="margin-top: 10px; padding: 8px 15px; background: #2d5a27; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%; transition: 0.3s;">বিস্তারিত দেখুন</button>
+                        <h4 style="margin: 5px 0; color: #333; font-size: 1.1rem;">${crop.name}</h4>
+                        <button onclick="openModal('${encodedCrop}')" style="margin-top: 10px; padding: 8px 15px; background: #2d5a27; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%; transition: 0.3s;">নির্দেশিকা দেখুন</button>
                     `;
                     container.appendChild(card);
                 });
             } catch (error) {
-                container.innerHTML = '<p style="color: red;">ডাটা লোড করতে সমস্যা হয়েছে।</p>';
+                console.error("Error loading crops:", error);
+                container.innerHTML = '<p style="color: red;">ডাটা লোড করতে সমস্যা হয়েছে। জ্যাঙ্গো সার্ভার চেক করুন।</p>';
             }
         }
 
@@ -163,6 +169,8 @@
             imgElement.src = `assets/images/crops/${crop.image_name}`;
             imgElement.onerror = function() { this.src = `https://via.placeholder.com/600x250?text=${crop.name}`; };
             
+            document.getElementById('modal-districts').innerText = crop.suitable_districts || "সারা বাংলাদেশ";
+            document.getElementById('modal-soil').innerText = crop.soil_type || "দোআঁশ মাটি";
             document.getElementById('modal-planting').innerText = crop.planting_time;
             document.getElementById('modal-fertilizer').innerText = crop.fertilizer;
             document.getElementById('modal-irrigation').innerText = crop.irrigation;

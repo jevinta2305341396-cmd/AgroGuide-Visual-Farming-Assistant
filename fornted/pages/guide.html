@@ -2,42 +2,483 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farming Guide | AgroGuide</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
-        .guide-section { padding: 40px 5%; }
-        .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .guide-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .guide-content { padding: 20px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 0; }
+        nav { background-color: #27ae60; color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; }
+        nav h1 { margin: 0; font-size: 24px; }
+        nav a { text-decoration: none; font-weight: bold; padding: 8px 15px; background: rgba(255,255,255,0.2); border-radius: 5px; transition: 0.3s; }
+        nav a:hover { background: rgba(255,255,255,0.4); }
+        
+        .guide-section { padding: 40px 5%; max-width: 1400px; margin: auto; }
+        .guide-section h2 { text-align: center; color: #2c3e50; margin-bottom: 30px; font-size: 28px; }
+        
+        .guide-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
+        }
+        
+        .guide-card { 
+            background: white; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            border-top: 5px solid #27ae60;
+            transition: transform 0.3s ease;
+        }
+        .guide-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        
+        .guide-content { padding: 25px; }
+        .guide-content h3 { color: #2c3e50; margin-top: 0; font-size: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .guide-content p { margin: 8px 0; color: #555; font-size: 14px; }
+        
+        .steps-list { padding-left: 20px; margin-top: 15px; color: #444; font-size: 14px; line-height: 1.6; }
+        .steps-list li { margin-bottom: 8px; }
+        .steps-list strong { color: #27ae60; }
+        
+        .market-section { margin-top: 60px; text-align: center; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body>
     <nav>
-        <h1>AgroGuide Guide</h1>
-        <a href="../dashboard.html" style="color:white;">Back to Dashboard</a>
+        <h1>🌱 AgroGuide Farming Guide</h1>
+        <a href="../index.html" style="color:white;">Back to Dashboard</a>
     </nav>
 
     <div class="guide-section">
-        <h2>Seasonal Farming Guide (ঋতুভিত্তিক চাষাবাদ গাইড)</h2>
+        <h2>বাংলাদেশের প্রধান ৩০টি ফসলের বিস্তারিত গাইডলাইন</h2>
         <div class="guide-grid">
+
             <div class="guide-card">
                 <div class="guide-content">
-                    <h3 style="color: var(--primary-green);">Summer Crops (খরিফ-১)</h3>
-                    <p>ফসল: ঝিঙা, চিচিঙ্গা, করলা, ডাটা ও পাট।</p>
-                    <p><strong>পরামর্শ:</strong> এই সময়ে পোকামাকড়ের উপদ্রব বেশি হয়, তাই জৈব বালাইনাশক ব্যবহার করুন।</p>
+                    <h3>১. ধান (Rice)</h3>
+                    <p><strong>মৌসুম:</strong> আউশ, আমন, বোরো</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> এঁটেল ও পলি দোআঁশ মাটিতে ৩-৪টি আড়াআড়ি চাষ ও মই দিয়ে কাদা তৈরি করতে হবে।</li>
+                        <li><strong>রোপণ:</strong> লাইন থেকে লাইন ২০ সে.মি. এবং চারা থেকে চারা ১৫ সে.মি. দূরত্ব বজায় রাখুন।</li>
+                        <li><strong>সার:</strong> বিঘাপ্রতি ইউরিয়া ২৬ কেজি, টিএসপি ১০ কেজি, এমওপি ১৪ কেজি ও জিপসাম ১৫ কেজি।</li>
+                        <li><strong>সেচ:</strong> চারা রোপণের পর থেকে শিষ আসা পর্যন্ত জমিতে ২-৩ ইঞ্চি পানি ধরে রাখতে হবে।</li>
+                        <li><strong>বালাইদমন:</strong> মাজরা পোকা ও বাদামী গাছফড়িং দমনে অনুমোদিত কীটনাশক ব্যবহার করুন।</li>
+                    </ul>
                 </div>
             </div>
+
             <div class="guide-card">
                 <div class="guide-content">
-                    <h3 style="color: #e67e22;">Winter Crops (রবি মৌসুম)</h3>
-                    <p>ফসল: আলু, ফুলকপি, বাঁধাকপি ও টমেটো।</p>
-                    <p><strong>পরামর্শ:</strong> কুয়াশা থেকে রক্ষা পেতে নিয়মিত ছত্রাকনাশক স্প্রে করুন।</p>
+                    <h3>২. গম (Wheat)</h3>
+                    <p><strong>মৌসুম:</strong> রবি (শীতকাল)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> দোআঁশ বা বেলে দোআঁশ মাটিতে ৩-৪টি চাষ ও মই দিয়ে ঝুরঝুরে করতে হবে।</li>
+                        <li><strong>বপন:</strong> অগ্রহায়ণ মাসের ১ম থেকে ৩য় সপ্তাহ (১৫-৩০ নভেম্বর) সেরা সময়।</li>
+                        <li><strong>সার:</strong> বিঘাপ্রতি ইউরিয়া ৩০ কেজি, টিএসপি ২০ কেজি ও এমওপি ৬ কেজি।</li>
+                        <li><strong>সেচ:</strong> গমে ৩টি সেচ লাগে- মুকুট শিকড় গজালে, শিষ বের হওয়ার সময় এবং দানা বাঁধার সময়।</li>
+                        <li><strong>বালাইদমন:</strong> ব্লাইট রোগ দমনে টিল্ট বা প্রোভ্যাক্স ব্যবহার করুন।</li>
+                    </ul>
                 </div>
             </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>৩. ভুট্টা (Maize)</h3>
+                    <p><strong>মৌসুম:</strong> রবি ও খরিফ</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> পানি জমে না এমন বেলে দোআঁশ বা দোআঁশ মাটি নির্বাচন করুন।</li>
+                        <li><strong>বপন:</strong> সারি থেকে সারি ৬০ সে.মি. এবং বীজ থেকে বীজ ২০-২৫ সে.মি. দূরে রোপণ করুন।</li>
+                        <li><strong>সার:</strong> ইউরিয়া বেশি লাগে। বিঘাপ্রতি ৩৫ কেজি ইউরিয়া, ২২ কেজি টিএসপি।</li>
+                        <li><strong>সেচ:</strong> চারা অবস্থায়, ফুল আসার আগে এবং দানা পুষ্ট হওয়ার সময় সেচ দিন।</li>
+                        <li><strong>বালাইদমন:</strong> ফল আর্মিওয়ার্ম পোকা দমনে ফেরোমন ফাঁদ বা স্পিনোস্যাড ব্যবহার করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>৪. আলু (Potato)</h3>
+                    <p><strong>মৌসুম:</strong> রবি (শীতকাল)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> বেলে দোআঁশ মাটি গভীর চাষ দিয়ে ঝুরঝুরে করে নালা তৈরি করতে হবে।</li>
+                        <li><strong>বপন:</strong> নভেম্বর মাসের প্রথম থেকে মাঝামাঝি সময়ে রোপণ করা ভালো।</li>
+                        <li><strong>সার:</strong> প্রচুর জৈব সার, বিঘাপ্রতি ৩৫ কেজি ইউরিয়া, ২৭ কেজি টিএসপি, ৩৫ কেজি এমওপি।</li>
+                        <li><strong>সেচ:</strong> রোপণের ২০-২৫ দিন পর প্রথম সেচ এবং এরপর মাটি শুকালে সেচ দিতে হবে।</li>
+                        <li><strong>বালাইদমন:</strong> নাবি ধসা (Late Blight) থেকে বাঁচাতে ম্যানকোজেব জাতীয় ছত্রাকনাশক স্প্রে করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>৫. পাট (Jute)</h3>
+                    <p><strong>মৌসুম:</strong> খরিফ-১ (গ্রীষ্মকাল)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> দোআঁশ মাটি ৫-৬টি গভীর চাষ দিয়ে মিহি করতে হবে।</li>
+                        <li><strong>বপন:</strong> ফাল্গুন-চৈত্র (মধ্য ফেব্রুয়ারি-এপ্রিল) মাসে বীজ ছিটিয়ে বা সারিতে বুনতে হয়।</li>
+                        <li><strong>সার:</strong> বিঘাপ্রতি ইউরিয়া ১২ কেজি, টিএসপি ৩ কেজি ও এমওপি ৪ কেজি।</li>
+                        <li><strong>পরিচর্যা:</strong> চারা ৩-৪ ইঞ্চি হলে প্রথম নিড়ানি দিয়ে ঘন চারা পাতলা করে দিন।</li>
+                        <li><strong>বালাইদমন:</strong> বিছা পোকা ও ঘোড়া পোকা দমনে ক্যারাটে বা রিকর্ড স্প্রে করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>৬. সরিষা (Mustard)</h3>
+                    <p><strong>মৌসুম:</strong> রবি (শীতকাল)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> আমন ধান কাটার পরপরই ৩-৪টি চাষ দিয়ে মাটি প্রস্তুত করতে হয়।</li>
+                        <li><strong>বপন:</strong> কার্তিক-অগ্রহায়ণ মাসে বীজ ছিটিয়ে বপন করা হয়।</li>
+                        <li><strong>সার:</strong> বিঘাপ্রতি ইউরিয়া ৩৫ কেজি, টিএসপি ২৩ কেজি, জিপসাম ২২ কেজি।</li>
+                        <li><strong>সেচ:</strong> বপনের ২৫-৩০ দিন পর একটি হালকা সেচ দিলে ফলন বাড়ে।</li>
+                        <li><strong>বালাইদমন:</strong> জাব পোকা দমনে ইমিডাক্লোপ্রিড জাতীয় কীটনাশক ব্যবহার করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>৭. টমেটো (Tomato)</h3>
+                    <p><strong>মৌসুম:</strong> রবি ও গ্রীষ্মকালীন</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> পানি নিষ্কাশনযুক্ত দোআঁশ মাটি নির্বাচন করে বেড তৈরি করুন।</li>
+                        <li><strong>রোপণ:</strong> সারি থেকে সারি ৬০ সে.মি. এবং চারা থেকে চারা ৪০ সে.মি. দূরে রোপণ করুন।</li>
+                        <li><strong>সার:</strong> গোবর সারের পাশাপাশি ইউরিয়া, টিএসপি ও পটাশ কয়েক কিস্তিতে দিন।</li>
+                        <li><strong>পরিচর্যা:</strong> গাছ বড় হলে বাঁশের খুঁটি বা মাচা দিয়ে সাপোর্ট দিতে হবে।</li>
+                        <li><strong>বালাইদমন:</strong> পাতা কোঁকড়ানো রোগ এড়াতে সাদা মাছি দমন করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>৮. ফুলকপি (Cauliflower)</h3>
+                    <p><strong>মৌসুম:</strong> রবি (শীতকাল)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> জৈব সার সমৃদ্ধ দোআঁশ বা এঁটেল দোআঁশ মাটিতে বেড তৈরি করুন।</li>
+                        <li><strong>রোপণ:</strong> ভাদ্র-আশ্বিন মাসে বীজতলায় চারা করে ৩০-৩৫ দিন পর মূল জমিতে লাগান।</li>
+                        <li><strong>সার:</strong> গোবর ৩ টন, ইউরিয়া ৪০ কেজি, টিএসপি ৩০ কেজি প্রতি বিঘায়।</li>
+                        <li><strong>সেচ:</strong> সার প্রয়োগের পর এবং মাটি শুকালে নিয়মিত হালকা সেচ দিন।</li>
+                        <li><strong>বালাইদমন:</strong> লেদা পোকা ও কাটুই পোকা দমনে সাইপারমেথ্রিন ব্যবহার করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>৯. বাঁধাকপি (Cabbage)</h3>
+                    <p><strong>মৌসুম:</strong> রবি (শীতকাল)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> ৪-৫টি চাষ ও মই দিয়ে মাটি ঝুরঝুরে করে নিতে হবে।</li>
+                        <li><strong>রোপণ:</strong> সারি থেকে সারি ৬০ সে.মি. এবং চারা থেকে চারা ৪৫ সে.মি.।</li>
+                        <li><strong>সার:</strong> ফুলকপির মতোই সার প্রয়োগ করতে হবে। বোরন সার দিলে মাথা ফাটে না।</li>
+                        <li><strong>সেচ:</strong> পাতা বাঁধার সময় মাটিতে পর্যাপ্ত রস থাকা অত্যন্ত জরুরি।</li>
+                        <li><strong>বালাইদমন:</strong> ঘোড়া পোকা ও পাতা খেকো লেদা পোকা দমন করতে হবে।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>১০. পেঁয়াজ (Onion)</h3>
+                    <p><strong>মৌসুম:</strong> রবি ও খরিফ</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> মিহি ঝুরঝুরে মাটি পেঁয়াজের জন্য খুব দরকার।</li>
+                        <li><strong>রোপণ:</strong> বীজতলা থেকে ৪০-৪৫ দিনের চারা মূল জমিতে সারিতে লাগাতে হয়।</li>
+                        <li><strong>সার:</strong> ইউরিয়া ৩০ কেজি, টিএসপি ২৫ কেজি, এমওপি ২০ কেজি (বিঘাপ্রতি)।</li>
+                        <li><strong>সেচ:</strong> ১০-১৫ দিন পরপর হালকা সেচ দিতে হবে। পানি জমতে দেওয়া যাবে না।</li>
+                        <li><strong>বালাইদমন:</strong> পার্পল ব্লচ (পাতা পচা) দমনে রোভরাল বা ডাইথেন এম-৪৫ স্প্রে করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>১১. রসুন (Garlic)</h3>
+                    <p><strong>মৌসুম:</strong> রবি (শীতকাল)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> পানি জমে না এমন বেলে দোআঁশ মাটিতে রোপণ করতে হবে।</li>
+                        <li><strong>বপন:</strong> রসুনের কোয়া সারি থেকে সারি ১৫ সে.মি. এবং কোয়া থেকে কোয়া ১০ সে.মি. দূরত্বে লাগান।</li>
+                        <li><strong>মালচিং:</strong> রোপণের পর কচুরিপানা বা খড় দিয়ে জমি ঢেকে (মালচিং) দিন।</li>
+                        <li><strong>সার:</strong> গোবর, ইউরিয়া, টিএসপি, পটাশ জমি তৈরির সময় দিতে হবে।</li>
+                        <li><strong>বালাইদমন:</strong> থ্রিপস পোকা দমনে ইমিডাক্লোপ্রিড স্প্রে করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>১২. বেগুন (Brinjal)</h3>
+                    <p><strong>মৌসুম:</strong> সারা বছর</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> গভীর চাষ দিয়ে বেড তৈরি করুন।</li>
+                        <li><strong>রোপণ:</strong> সারি ও চারার দূরত্ব জাতভেদে ৬০-৯০ সে.মি. রাখুন।</li>
+                        <li><strong>সার:</strong> ইউরিয়া কিস্তিতে কিস্তিতে প্রয়োগ করুন ফুল ও ফল আসার সময়।</li>
+                        <li><strong>সেচ:</strong> খরা মৌসুমে ৭-১০ দিন পরপর সেচ দিন।</li>
+                        <li><strong>বালাইদমন:</strong> ডগা ও ফল ছিদ্রকারী পোকা দমনে ফেরোমন ফাঁদ ও সাকসেস ব্যবহার করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>১৩. কাঁচামরিচ (Chili)</h3>
+                    <p><strong>মৌসুম:</strong> সারা বছর</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> বৃষ্টি বা সেচের পানি জমে না এমন দোআঁশ মাটি নির্বাচন করুন।</li>
+                        <li><strong>রোপণ:</strong> চারা থেকে চারার দূরত্ব ৪৫ সে.মি. রাখুন।</li>
+                        <li><strong>সার:</strong> জৈব সারের পাশাপাশি পরিমিত মাত্রায় রাসায়নিক সার দিন।</li>
+                        <li><strong>সেচ:</strong> মরিচ গাছে অতিরিক্ত পানি দিলে গাছ মরে যায়, তাই সতর্ক থাকুন।</li>
+                        <li><strong>বালাইদমন:</strong> মাকড় দমনে ভার্টিমেক এবং পাতা পচা দমনে ছত্রাকনাশক স্প্রে করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>১৪. মসুর ডাল (Lentil)</h3>
+                    <p><strong>মৌসুম:</strong> রবি (শীতকাল)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> এঁটেল দোআঁশ মাটিতে ২-৩টি চাষ দিয়ে বীজ বুনতে হয়।</li>
+                        <li><strong>বপন:</strong> কার্তিক মাসের মাঝামাঝি (নভেম্বর প্রথম সপ্তাহ) সেরা সময়।</li>
+                        <li><strong>সার:</strong> ডাল ফসলে ইউরিয়া কম লাগে। বিঘায় ইউরিয়া ৬ কেজি, টিএসপি ১২ কেজি দিন।</li>
+                        <li><strong>সেচ:</strong> সাধারণত সেচের প্রয়োজন হয় না। অতি খরায় একটি হালকা সেচ দেওয়া যেতে পারে।</li>
+                        <li><strong>বালাইদমন:</strong> জাব পোকা এবং গোড়া পচা রোগ দমনে নজর রাখতে হবে।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>১৫. লাউ (Bottle Gourd)</h3>
+                    <p><strong>মৌসুম:</strong> রবি ও খরিফ</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> মাদা (গর্ত) তৈরি করে ২-৩টি বীজ রোপণ করতে হয়।</li>
+                        <li><strong>মাচা তৈরি:</strong> চারা একটু বড় হলেই বাঁশ বা সুতলি দিয়ে মাচা তৈরি করে দিন।</li>
+                        <li><strong>সার:</strong> প্রতিটি মাদায় ৫ কেজি গোবর, ১০০ গ্রাম ইউরিয়া, ১০০ গ্রাম টিএসপি দিন।</li>
+                        <li><strong>সেচ:</strong> লাউয়ে প্রচুর পানির প্রয়োজন হয়, মাটি শুকাতে দেওয়া যাবে না।</li>
+                        <li><strong>বালাইদমন:</strong> ফ্রুট ফ্লাই (মাছি পোকা) দমনে বিষটোপ বা ফেরোমন ফাঁদ দিন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>১৬. মিষ্টি কুমড়া (Sweet Gourd)</h3>
+                    <p><strong>মৌসুম:</strong> সারা বছর</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> লাউয়ের মতোই মাদা তৈরি করতে হয়।</li>
+                        <li><strong>বপন:</strong> ২ মিটার দূরে দূরে মাদা তৈরি করে প্রতি মাদায় ৩-৪টি বীজ দিন।</li>
+                        <li><strong>পরাগায়ন:</strong> ফলন বাড়াতে সকালে হাত পরাগায়ন (কৃত্রিম পরাগায়ন) করে দিন।</li>
+                        <li><strong>সার:</strong> জৈব সার বেশি ব্যবহার করলে ফলন ও স্বাদ ভালো হয়।</li>
+                        <li><strong>বালাইদমন:</strong> রেড পামকিন বিটল পোকা দমনে ছাই বা অনুমোদিত কীটনাশক দিন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>১৭. করলা (Bitter Gourd)</h3>
+                    <p><strong>মৌসুম:</strong> খরিফ-১ (গ্রীষ্মকাল)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> পানি নিষ্কাশনযুক্ত জমিতে মাদা তৈরি করে মাচা দিতে হবে।</li>
+                        <li><strong>বপন:</strong> ফেব্রুয়ারি থেকে মে মাস পর্যন্ত বীজ বোনার উপযুক্ত সময়।</li>
+                        <li><strong>সার:</strong> ইউরিয়া ও পটাশ সার কিস্তিতে প্রয়োগ করুন।</li>
+                        <li><strong>সেচ:</strong> খরা মৌসুমে ৫-৭ দিন পরপর সেচ দেওয়া জরুরি।</li>
+                        <li><strong>বালাইদমন:</strong> মাছি পোকা দমনে কিউলিওর ফেরোমন ফাঁদ ব্যবহার সবচেয়ে কার্যকর।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>১৮. ঢেঁড়স (Okra)</h3>
+                    <p><strong>মৌসুম:</strong> খরিফ (গ্রীষ্ম ও বর্ষা)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> ৫-৬টি চাষ দিয়ে মাটি ঝুরঝুরে করে বেড তৈরি করুন।</li>
+                        <li><strong>বপন:</strong> বীজ বোনার আগে ২৪ ঘণ্টা পানিতে ভিজিয়ে রাখলে অঙ্কুরোদগম ভালো হয়।</li>
+                        <li><strong>সার:</strong> বিঘাপ্রতি ২০ কেজি ইউরিয়া, ১৫ কেজি টিএসপি।</li>
+                        <li><strong>পরিচর্যা:</strong> নিয়মিত আগাছা পরিষ্কার করা জরুরি।</li>
+                        <li><strong>বালাইদমন:</strong> মোজাইক ভাইরাস (হলুদ হয়ে যাওয়া) থেকে বাঁচাতে সাদা মাছি দমন করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>১৯. লালশাক (Red Amaranth)</h3>
+                    <p><strong>মৌসুম:</strong> সারা বছর</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> মিহি করে চাষ দিয়ে মাটি একদম ঝুরঝুরে করতে হবে।</li>
+                        <li><strong>বপন:</strong> বীজের সাথে বালি মিশিয়ে সমানে ছিটিয়ে দিন যাতে ঘন না হয়।</li>
+                        <li><strong>সার:</strong> গোবর সারের সাথে সামান্য ইউরিয়া দিলে শাক দ্রুত বাড়ে।</li>
+                        <li><strong>সেচ:</strong> প্রতিদিন বিকেলে ঝরনা দিয়ে হালকা সেচ দিতে হবে।</li>
+                        <li><strong>বালাইদমন:</strong> পাতা ছিদ্রকারী পোকা দমনে জৈব বালাইনাশক বা নিমের নির্যাস দিন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>২০. মুলা (Radish)</h3>
+                    <p><strong>মৌসুম:</strong> রবি (শীতকাল)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> গভীরভাবে জমি চাষ করতে হবে যাতে মুলার শিকড় নিচে যেতে পারে।</li>
+                        <li><strong>বপন:</strong> ভাদ্র থেকে কার্তিক মাস পর্যন্ত বীজ বোনা যায়।</li>
+                        <li><strong>সার:</strong> ইউরিয়া, টিএসপি এবং পটাশ সার জমি তৈরির সময় দিন।</li>
+                        <li><strong>পরিচর্যা:</strong> চারা গজালে পাতলা করে দিন (চারার দূরত্ব ১০ সে.মি.)।</li>
+                        <li><strong>বালাইদমন:</strong> অল্টারনারিয়া পাতা ধসা রোগ দমনে ছত্রাকনাশক স্প্রে করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>২১. গাজর (Carrot)</h3>
+                    <p><strong>মৌসুম:</strong> রবি (শীতকাল)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> বেলে বা বেলে দোআঁশ মাটি গাজরের জন্য সবচেয়ে ভালো। গভীর চাষ দিন।</li>
+                        <li><strong>বপন:</strong> আশ্বিন-কার্তিক মাসে বীজ সারিতে বপন করতে হয়।</li>
+                        <li><strong>সার:</strong> কাঁচা গোবর দেওয়া যাবে না, এতে গাজর ফেটে যায়। পচা গোবর দিন।</li>
+                        <li><strong>সেচ:</strong> মাটি সবসময় হালকা ভেজা রাখতে হবে।</li>
+                        <li><strong>বালাইদমন:</strong> গাজরে সাধারণত রোগবালাই কম হয়, তবে পচন রোধে পানি জমতে দেওয়া যাবে না।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>২২. পেঁপে (Papaya)</h3>
+                    <p><strong>মৌসুম:</strong> সারা বছর</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> পানি জমলে পেঁপে গাছ মারা যায়। উঁচু জমি নির্বাচন করে গর্ত (মাদা) করুন।</li>
+                        <li><strong>রোপণ:</strong> চারা থেকে চারার দূরত্ব ২ মিটার। প্রতি মাদায় ৩টি চারা লাগান।</li>
+                        <li><strong>সার:</strong> প্রতি গাছে নিয়মিত গোবর, ইউরিয়া (৫০ গ্রাম) ও পটাশ (৫০ গ্রাম) এক মাস পরপর দিন।</li>
+                        <li><strong>পরিচর্যা:</strong> ফুল আসলে প্রতি মাদায় ১টি সুস্থ স্ত্রী গাছ রেখে বাকিগুলো কেটে ফেলুন (১০% পুরুষ গাছ বাদে)।</li>
+                        <li><strong>বালাইদমন:</strong> মিলিবাগ বা ছাতরা পোকা দমনে সাবান পানি বা ইমিডাক্লোপ্রিড স্প্রে করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>২৩. কলা (Banana)</h3>
+                    <p><strong>মৌসুম:</strong> সারা বছর (আশ্বিন-কার্তিক ও মাঘ-ফাল্গুন সেরা সময়)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> গভীর দোআঁশ মাটিতে গর্ত তৈরি করে রোপণ করতে হয়।</li>
+                        <li><strong>রোপণ:</strong> সুস্থ সবল অসি-তেউড় (Sword sucker) রোপণ করুন।</li>
+                        <li><strong>সার:</strong> কলায় প্রচুর পটাশ সার লাগে। গোবরের সাথে টিএসপি ও এমওপি দিন।</li>
+                        <li><strong>পরিচর্যা:</strong> গাছের গোড়ার অতিরিক্ত চারা (তেউড়) নিয়মিত কেটে ফেলতে হবে।</li>
+                        <li><strong>বালাইদমন:</strong> পানামা রোগ (পাতা হলুদ হওয়া) দমনে সুস্থ চারা ব্যবহার এবং আক্রান্ত গাছ পুড়িয়ে ফেলা উচিত।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>২৪. শসা (Cucumber)</h3>
+                    <p><strong>মৌসুম:</strong> গ্রীষ্ম ও বর্ষা</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> মাদা তৈরি করে মাচা দিয়ে চাষ করতে হয়।</li>
+                        <li><strong>বপন:</strong> প্রতি মাদায় ৪-৫টি বীজ বুনতে হয়। চারা বড় হলে ২টি রেখে বাকিগুলো তুলতে হয়।</li>
+                        <li><strong>সার:</strong> গোবর, খৈল এবং পরিমিত রাসায়নিক সার প্রয়োগ করুন।</li>
+                        <li><strong>সেচ:</strong> গ্রীষ্মকালে ৫ দিন পরপর সেচ দেওয়া প্রয়োজন।</li>
+                        <li><strong>বালাইদমন:</strong> ডাউনি মিলডিউ রোগ দমনে ম্যানকোজেব স্প্রে করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>২৫. হলুদ (Turmeric)</h3>
+                    <p><strong>মৌসুম:</strong> খরিফ (চৈত্র-বৈশাখ)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> ছায়াযুক্ত বা আংশিক ছায়াযুক্ত বেলে দোআঁশ মাটিতে ভালো হয়।</li>
+                        <li><strong>রোপণ:</strong> সারি থেকে সারি ৫০ সে.মি. এবং কন্দ থেকে কন্দ ২৫ সে.মি.।</li>
+                        <li><strong>মালচিং:</strong> রোপণের পর পাতা বা খড় দিয়ে মাটি ঢেকে দিন।</li>
+                        <li><strong>সার:</strong> গোবর সার ও ছাই হলুদের জন্য খুব উপকারী।</li>
+                        <li><strong>বালাইদমন:</strong> কন্দ পচা রোগ রোধে রোপণের আগে কন্দ ছত্রাকনাশক দিয়ে শোধন করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>২৬. আদা (Ginger)</h3>
+                    <p><strong>মৌসুম:</strong> খরিফ (চৈত্র-বৈশাখ)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> পানি নিষ্কাশনযুক্ত উঁচু জমিতে বেড করে রোপণ করুন।</li>
+                        <li><strong>রোপণ:</strong> ৪০-৫০ গ্রাম ওজনের মুকি বা কন্দ রোপণ করতে হবে।</li>
+                        <li><strong>সার:</strong> হলুদের মতোই পর্যাপ্ত জৈব সার ও ছাই প্রয়োগ করতে হবে।</li>
+                        <li><strong>সেচ:</strong> মাটিতে রস না থাকলে হালকা সেচ দিন, তবে পানি জমতে দেওয়া যাবেবিধা দেওয়া যাবে না।</li>
+                        <li><strong>বালাইদমন:</strong> রাইজোম রট (কন্দ পচা) আদার প্রধান শত্রু। ছত্রাকনাশক ও বোর্দো মিক্সচার ব্যবহার করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>২৭. চিচিঙ্গা (Snake Gourd)</h3>
+                    <p><strong>মৌসুম:</strong> গ্রীষ্ম ও বর্ষা</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> লাউ বা করলার মতোই মাদা ও মাচা তৈরি করতে হবে।</li>
+                        <li><strong>বপন:</strong> ফাল্গুন-চৈত্র মাসে বীজ বোনা হয়।</li>
+                        <li><strong>সার:</strong> চারা বড় হওয়ার পর মাচায় ওঠার সময় ইউরিয়া সার উপরি প্রয়োগ করুন।</li>
+                        <li><strong>পরিচর্যা:</strong> ফল সোজা রাখার জন্য ফলের নিচে ছোট পাথর বা মাটির ভার ঝুলিয়ে দেওয়া যায়।</li>
+                        <li><strong>বালাইদমন:</strong> মাছি পোকা দমনে বিষটোপ ব্যবহার করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>২৮. ঝিঙা (Ridge Gourd)</h3>
+                    <p><strong>মৌসুম:</strong> গ্রীষ্ম ও বর্ষা</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> মাদা তৈরি করে বীজ বপন করতে হয়।</li>
+                        <li><strong>বপন:</strong> বীজ বোনার আগে পানিতে ভিজিয়ে রাখলে দ্রুত চারা গজায়।</li>
+                        <li><strong>সার:</strong> প্রতিটি মাদায় জৈব সার ও পরিমিত রাসায়নিক সার দিন।</li>
+                        <li><strong>সেচ:</strong> শুষ্ক মৌসুমে নিয়মিত সেচ দিন।</li>
+                        <li><strong>বালাইদমন:</strong> বিটল পোকা দমনে সাইপারমেথ্রিন জাতীয় কীটনাশক স্প্রে করুন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>২৯. তরমুজ (Watermelon)</h3>
+                    <p><strong>মৌসুম:</strong> রবি/খরিফ-১ (মাঘ-ফাল্গুন)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> চরাঞ্চল বা বেলে দোআঁশ মাটি তরমুজের জন্য উপযুক্ত। মাদা তৈরি করুন।</li>
+                        <li><strong>বপন:</strong> প্রতি মাদায় ৩-৪টি বীজ বুনুন।</li>
+                        <li><strong>সার:</strong> গোবর, টিএসপি, পটাশ, জিপসাম ও বোরন সার মাদা তৈরির সময় দিন।</li>
+                        <li><strong>সেচ:</strong> চারা অবস্থায় ও ফুল আসার সময় সেচ দিন। ফল পাকার সময় সেচ বন্ধ রাখুন।</li>
+                        <li><strong>বালাইদমন:</strong> মাছি পোকা ও কাটুই পোকা দমনে ফেরোমন ফাঁদ ও কীটনাশক দিন।</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <div class="guide-content">
+                    <h3>৩০. ধনেপাতা (Coriander)</h3>
+                    <p><strong>মৌসুম:</strong> প্রধানত শীতকাল (তবে এখন সারা বছর হয়)</p>
+                    <ul class="steps-list">
+                        <li><strong>মাটি তৈরি:</strong> মাটি মিহি ঝুরঝুরে করে চাষ দিন।</li>
+                        <li><strong>বপন:</strong> বীজ বোনার আগে ঘষে দুই ভাগ করে পানিতে ভিজিয়ে রাখলে দ্রুত অঙ্কুরিত হয়।</li>
+                        <li><strong>সার:</strong> মূলত গোবর সার এবং অল্প ইউরিয়া প্রয়োগ করলেই হয়।</li>
+                        <li><strong>সেচ:</strong> ঝরনা দিয়ে নিয়মিত হালকা সেচ দিতে হবে।</li>
+                        <li><strong>বালাইদমন:</strong> পাতায় দাগ বা পচন দেখা দিলে ম্যানকোজেব স্প্রে করা যেতে পারে।</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
 
-        <h3 style="margin-top: 50px;">Real-time Market Insights</h3>
-        <div id="market-price-container" class="price-grid"></div>
+        <div class="market-section">
+            <h3 style="color: #2c3e50;">Real-time Market Insights</h3>
+            <p>বর্তমান বাজারের ফসলের দাম জানতে নিচের বাটনে ক্লিক করুন অথবা ড্যাশবোর্ড চেক করুন।</p>
+            <div id="market-price-container" class="price-grid"></div>
+        </div>
     </div>
 
     <script src="../assets/js/market.js"></script>

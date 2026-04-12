@@ -10,3 +10,10 @@ class CropDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model = CropDetails
         fields = '__all__'
+from rest_framework import serializers
+from .models import CropDetails
+
+class CropDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CropDetails
+        fields = '__all__'
