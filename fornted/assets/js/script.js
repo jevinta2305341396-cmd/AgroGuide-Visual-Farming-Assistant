@@ -1,13 +1,9 @@
-// assets/js/script.js
-
-// ১. লগআউট ফাংশন
-function logoutUser() {
+ function logoutUser() {
     localStorage.removeItem('agro_token'); // টোকেন ডিলিট করা
     alert("Logging out...");
     window.location.href = '/index.html';
 }
 
-// ২. ইউজার লগইন আছে কি না তা চেক করা
 function checkAuth() {
     const token = localStorage.getItem('agro_token');
     if (!token && window.location.pathname.includes('dashboard.html')) {
@@ -15,7 +11,6 @@ function checkAuth() {
     }
 }
 
-// ৩. একটি কমন এনিমেশন বা ইউজার মেসেজ ফাংশন
 function showNotification(message, type = 'success') {
     const note = document.createElement('div');
     note.innerText = message;
@@ -29,5 +24,4 @@ function showNotification(message, type = 'success') {
     setTimeout(() => note.remove(), 3000);
 }
 
-// পেজ লোড হলে চেক রান হবে
 document.addEventListener('DOMContentLoaded', checkAuth);

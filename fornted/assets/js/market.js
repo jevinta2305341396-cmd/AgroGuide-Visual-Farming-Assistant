@@ -1,7 +1,4 @@
-// assets/js/market.js
-
 const fullMarketData = [
-    // ১. ধান/চাল/ডাল/গম (১–১০)
     { name: "মোটা চাল", price: "৳৫৫–৬৪", cat: "grain", img: "mota_chal.jpg" },
     { name: "মাঝারি চাল", price: "৳৬০–৭৫", cat: "grain", img: "med_chal.jpg" },
     { name: "সুপারি/আনন্দ চাল", price: "৳৭৫–৮৫", cat: "grain", img: "premium_chal.jpg" },
@@ -12,28 +9,20 @@ const fullMarketData = [
     { name: "মুগ ডাল", price: "৳১৪০–১৮০", cat: "grain", img: "moog.jpg" },
     { name: "কাবুলি চনা", price: "৳২০০–২২০", cat: "grain", img: "kabuli.jpg" },
     { name: "পাটিসাপটা ডাল", price: "৳১২০–১৪০", cat: "grain", img: "dal.jpg" },
-
-    // ২. তেল ও ঘি (১১–১৩)
     { name: "সয়াবিন তেল (লুস)", price: "৳১৭৫", cat: "oil", img: "oil.jpg" },
     { name: "প্যাকেট সয়াবিন তেল", price: "৳১৮০–২৩০", cat: "oil", img: "oil_packet.jpg" },
     { name: "ঘি (ঘৃত)", price: "৳৪৫০–৬৫০", cat: "oil", img: "ghi.jpg" },
-
-    // ৩. মাংস ও ডিম (১৪–১৮)
     { name: "মুরগি (ব্রয়লার)", price: "৳২০০–২১০", cat: "meat", img: "chicken.jpg" },
     { name: "সোনালী মুরগি", price: "৳৩২০–৩৪০", cat: "meat", img: "sonali.jpg" },
     { name: "গরুর মাংস", price: "৳৭৫০–৮০০", cat: "meat", img: "beef.jpg" },
     { name: "খাসির মাংস", price: "৳১০৫০–১২০০", cat: "meat", img: "mutton.jpg" },
     { name: "ডিম (ডজন)", price: "৳১৩৫–১৫০", cat: "meat", img: "eggs.jpg" },
-
-    // ৪. মাছ (১৯–২৪)
     { name: "ছোট মাছ (কচকি)", price: "৳৪৫০–৭০০", cat: "fish", img: "small_fish.jpg" },
     { name: "পাঙ্গাস", price: "৳২৫০–৮০০", cat: "fish", img: "pangash.jpg" },
     { name: "রুই", price: "৳৩৮০–৪২০", cat: "fish", img: "rui.jpg" },
     { name: "শিং/মাগুর", price: "৳৫০০–৬০০", cat: "fish", img: "magur.jpg" },
     { name: "বোয়াল", price: "৳৮০০–১২০০", cat: "fish", img: "boal.jpg" },
     { name: "ইলিশ", price: "৳১২০০–২৫০০", cat: "fish", img: "hilsa.jpg" },
-
-    // ৫. সবজি (২৫–৫৪)
     { name: "আলু", price: "৳২৫–৩০", cat: "veg", img: "potato.jpg" },
     { name: "পেঁয়াজ", price: "৳৮০–৯০", cat: "veg", img: "onion.jpg" },
     { name: "টমেটো", price: "৳১৪০–১৫০", cat: "veg", img: "tomato.jpg" },
@@ -54,8 +43,6 @@ const fullMarketData = [
     { name: "লাল শাক", price: "৳৩০–৫০", cat: "veg", img: "lalshak.jpg" },
     { name: "কুমড়ো", price: "৳৫০–৮০", cat: "veg", img: "pumpkin.jpg" },
     { name: "লেবু", price: "৳২০০–২৫০", cat: "veg", img: "lemon.jpg" },
-
-    // ৬. মসলা ও অন্যান্য (৫৫–৬৯)
     { name: "চিনি", price: "৳১৪৫–১৭০", cat: "spice", img: "sugar.jpg" },
     { name: "রসুন", price: "৳১৮০–২৪০", cat: "spice", img: "garlic.jpg" },
     { name: "আদা", price: "৳২২০–২৫০", cat: "spice", img: "ginger.jpg" },
@@ -69,8 +56,6 @@ const fullMarketData = [
     { name: "ময়দা", price: "৳৫০–৬০", cat: "spice", img: "flour_white.jpg" },
     { name: "কোকো পাউডার", price: "৳৪০০", cat: "spice", img: "cocoa.jpg" },
     { name: "কফি পাউডার", price: "৳৮০০–৯০০", cat: "spice", img: "coffee.jpg" },
-
-    // ৭. ফল (৭০–৯৪)
     { name: "কলা", price: "৳৩০–৫০", cat: "fruit", img: "banana.jpg" },
     { name: "আম", price: "৳৮০–১৫০", cat: "fruit", img: "mango.jpg" },
     { name: "আপেল", price: "৳১২০–২২০", cat: "fruit", img: "apple.jpg" },
@@ -87,8 +72,6 @@ const fullMarketData = [
     { name: "নাশপাতি", price: "৳১৫০–২৫০", cat: "fruit", img: "pear.jpg" },
     { name: "কিউই", price: "৳২৫০–৩৫০", cat: "fruit", img: "kiwi.jpg" },
     { name: "ড্রাগন ফ্রুট", price: "৳৩০০–৪০০", cat: "fruit", img: "dragon.jpg" },
-
-    // ৮. মসলা ও অতিরিক্ত (৯৫–১০০)
     { name: "মরিচ গুঁড়ো", price: "৳৩০০–৪০০", cat: "spice", img: "chili_powder.jpg" },
     { name: "সরিষা বীজ", price: "৳২২০–২৫০", cat: "spice", img: "mustard.jpg" }
 ];
@@ -97,7 +80,6 @@ function loadMarketPrices(filter = 'all') {
     const container = document.getElementById('market-price-container');
     if (!container) return;
 
-    // ক্লিয়ার প্রিভিয়াস ডেটা
     container.innerHTML = "";
 
     const filteredData = filter === 'all' ? fullMarketData : fullMarketData.filter(i => i.cat === filter);
@@ -115,7 +97,6 @@ function loadMarketPrices(filter = 'all') {
     });
 }
 
-// ফিল্টার বাটন হ্যান্ডলিং
 document.addEventListener('DOMContentLoaded', () => {
     function loadMarketPrices(filter = 'all') {
     const container = document.getElementById('market-price-container');
@@ -129,8 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.className = 'price-card';
         
-        // ছবির জন্য সোর্স তৈরি
-        // প্রথমে আপনার লোকাল ফোল্ডার চেক করবে, না পেলে অনলাইন থেকে ডেমো ছবি নিবে
         const localImgPath = `assets/images/crops/${item.img}`;
         const fallbackImg = `https://source.unsplash.com/400x300/?${item.name},agriculture`;
 

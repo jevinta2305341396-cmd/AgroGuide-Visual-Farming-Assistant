@@ -53,7 +53,6 @@
             margin-bottom: 25px;
         }
 
-        /* হিডেন ফাইল ইনপুট */
         #file-input {
             display: none;
         }
@@ -147,27 +146,19 @@
                 const output = document.getElementById('image-preview');
                 output.src = reader.result;
                 document.getElementById('preview-container').style.display = 'block';
-                // স্মুথ স্ক্রল টু প্রিভিউ
                 window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             };
             reader.readAsDataURL(event.target.files[0]);
         }
 
         function startAnalysis() {
-            // লোডিং দেখানো
             document.getElementById('loading').style.display = 'block';
             document.getElementById('preview-container').style.opacity = '0.5';
 
-            // সিমুলেশন: ৩ সেকেন্ড পর রেজাল্ট পেজে নিয়ে যাবে
-            // রিয়েল প্রজেক্টে এখানে এপিআই কল হবে
             setTimeout(() => {
                 window.location.href = 'result.html';
             }, 3000);
         }
     </script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 3f629a7f3d045eb315e1cb475c4573216c4b2995

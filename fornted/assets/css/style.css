@@ -49,7 +49,6 @@ nav {
 }
 
 .btn-primary:hover { background: var(--primary-green); }
-/* style.css এ যোগ করুন */
 .price-text {
     font-size: 1.4rem;
     font-weight: bold;
@@ -71,7 +70,6 @@ input:focus {
     border-color: var(--light-green) !important;
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
-/* Sidebar Links Hover Effect */
 .sidebar nav a {
     display: block;
     text-decoration: none;
@@ -85,14 +83,12 @@ input:focus {
     padding-left: 25px;
 }
 
-/* Dashboard Quick Cards Hover */
 .quick-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     border-color: var(--light-green);
 }
 
-/* Responsive Image Preview */
 #image-preview {
     border: 3px solid var(--light-green);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -101,11 +97,9 @@ input:focus {
     margin: 20px auto;
 }
 
-/* Auth Pages Background */
 .login-body {
     background: linear-gradient(135deg, #2d5a27 0%, #4CAF50 100%);
 }
-/* ১০০টি প্রোডাক্টের গ্রিড লেআউট */
 .price-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* ছোট স্ক্রিনেও সুন্দর দেখাবে */
@@ -113,7 +107,6 @@ input:focus {
     margin-top: 20px;
 }
 
-/* প্রতিটি প্রোডাক্ট কার্ডের ডিজাইন */
 .price-card {
     background: white;
     border-radius: 12px;
@@ -130,7 +123,6 @@ input:focus {
     border-color: #4CAF50;
 }
 
-/* প্রোডাক্ট ইমেজের প্লেসহোল্ডার */
 .img-placeholder {
     width: 100%;
     height: 120px;
@@ -141,7 +133,6 @@ input:focus {
     margin-bottom: 12px;
 }
 
-/* প্রোডাক্টের নাম ও দামের স্টাইল */
 .price-card h4 {
     margin: 10px 0 5px;
     font-size: 1.1rem;
@@ -155,7 +146,6 @@ input:focus {
     margin-bottom: 10px;
 }
 
-/* ক্যাটাগরি ট্যাগ */
 .category-tag {
     font-size: 10px;
     background: #e8f5e9;
@@ -165,7 +155,6 @@ input:focus {
     font-weight: bold;
 }
 
-/* ফিল্টার বাটনের স্টাইল */
 .btn-filter {
     padding: 8px 15px;
     border: 1px solid #2d5a27;
