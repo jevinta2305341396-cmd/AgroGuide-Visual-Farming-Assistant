@@ -40,7 +40,6 @@ class CropDetails(models.Model):
     irrigation = models.TextField()
     description = models.TextField()
     image_name = models.CharField(max_length=100)
-    # নতুন ফিল্ড
     suitable_districts = models.CharField(max_length=255, default="সারা বাংলাদেশ") 
     soil_type = models.CharField(max_length=200, default="দোআঁশ ও বেলে দোআঁশ")
 
@@ -65,3 +64,15 @@ class ExpertQuestion(models.Model):
 
     def __str__(self):
         return f"{self.crop_name} - {self.status}"
+    from django.db import models
+from django.contrib.auth.models import User
+
+class ExpertQuestion(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255, verbose_name="প্রশ্নের শিরোনাম")
+    description = models.TextField(verbose_name="বিস্তারিত সমস্যা")
+    answer = models.TextField(blank=True, null=True, verbose_name="বিশেষজ্ঞের উত্তর")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

@@ -35,3 +35,23 @@ class ExpertQuestionListCreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(farmer=self.request.user)
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.response import Response
+from .models import ExpertQuestion
+from .serializers import ExpertQuestionSerializer
+
+@api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticatedOrReadOnly]) 
+def ask_expert_api(request):
+    if request.method == 'GET':
+        questions = ExpertQuestion.objects.all().order_by('-created_at')
+        serializer = ExpertQuestionSerializer(questions, many=True)
+        return Response(serializer.data)
+        
+    elif request.method == 'POST':
+        serializer = ExpertQuestionSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)

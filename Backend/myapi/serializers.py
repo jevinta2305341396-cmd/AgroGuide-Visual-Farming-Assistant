@@ -25,3 +25,10 @@ class ExpertQuestionSerializer(serializers.ModelSerializer):
         model = ExpertQuestion
         fields = '__all__'
         read_only_fields = ['farmer', 'expert_reply', 'status', 'created_at']
+from rest_framework import serializers
+from .models import ExpertQuestion
+
+class ExpertQuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ExpertQuestion
+        fields = ['id', 'title', 'description', 'answer', 'created_at']

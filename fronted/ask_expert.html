@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Expert | AgroGuide</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* পুরো বডির বেসিক স্টাইল */
+        body { margin: 0; display: flex; font-family: Arial, sans-serif; background-color: #f4f7f6; }
+        
+        /* বাম পাশের সাইডবার স্টাইল */
+        .sidebar { width: 250px; background-color: #1b5e20; color: white; height: 100vh; padding: 20px 0; position: fixed; }
+        .sidebar h2 { text-align: center; margin-bottom: 20px; font-weight: bold; font-size: 24px; }
+        .sidebar a { display: block; color: white; text-decoration: none; padding: 15px 25px; transition: 0.3s; font-size: 16px; }
+        .sidebar a:hover { background-color: #2e7d32; border-left: 4px solid #a5d6a7; }
+        .active-menu { background-color: #2e7d32; border-left: 4px solid #a5d6a7; }
+        .user-info { padding: 10px; background: rgba(255,255,255,0.1); margin: 0 20px 30px 20px; border-radius: 5px; font-size: 14px; text-align: center; }
+        
+        /* ডান পাশের মূল কন্টেন্ট স্টাইল */
+        .main-content { margin-left: 250px; padding: 40px; width: calc(100% - 250px); box-sizing: border-box; }
+        
+        /* Ask Expert ফর্মের স্টাইল */
+        .container { max-width: 800px; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); margin: 0 auto; }
+        .form-group { margin-bottom: 15px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 15px; }
+        .btn { background-color: #2e7d32; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; }
+        .btn:hover { background-color: #1b5e20; }
+        .question-card { background: #f9f9f9; border-left: 4px solid #2e7d32; padding: 15px; margin-top: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .answer { background: #e8f5e9; padding: 10px; margin-top: 10px; border-radius: 5px; color: #1b5e20; border-left: 3px solid #4caf50; }
+        .pending { color: #d32f2f; font-weight: bold; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>🌱 AgroGuide</h2>
+        <div class="user-info">👤 Welcome, Farmer!</div>
+        
+        <a href="dashboard.html">🏠 Home</a>
+        <a href="disease_check.html">🔬 AI Disease Check</a>
+        <a href="farming_guide.html">📖 Farming Guide</a>
+        <a href="ask_expert.html" class="active-menu">👨‍🌾 Ask Expert</a>
+        
+        <br><br><br>
+        <a href="login.html" style="color: #ffcccc;">🚪 Logout</a>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <h2 style="color: #1b5e20; border-bottom: 2px solid #eee; padding-bottom: 10px;">👨‍🌾 বিশেষজ্ঞের পরামর্শ নিন</h2>
+            <p style="color: #555;">আপনার ফসলের যেকোনো সমস্যার কথা আমাদের কৃষি বিশেষজ্ঞদের জানান।</p>
+
+            <form id="expert-form" style="margin-top: 20px;">
+                <div class="form-group">
+                    <input type="text" id="q-title" placeholder="সমস্যার শিরোনাম (যেমন: টমেটো পাতায় দাগ)" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="q-desc" rows="4" placeholder="সমস্যাটি বিস্তারিত লিখুন..." required></textarea>
+                </div>
+                <button type="submit" class="btn">প্রশ্ন জমা দিন</button>
+                <p id="msg" style="margin-top: 10px; font-weight: bold;"></p>
+            </form>
+
+            <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+            <h3 style="color: #333;">আপনার আগের প্রশ্নসমূহ:</h3>
+            <div id="questions-list">
+                </div>
+        </div>
+    </div>
+
+    <script src="assets/js/ask_expert.js"></script>
+</body>
+</html>
