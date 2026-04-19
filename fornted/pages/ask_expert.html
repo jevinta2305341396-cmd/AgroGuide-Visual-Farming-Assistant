@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ask Expert | AgroGuide</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div style="padding: 40px; max-width: 800px; margin: auto;">
+        <h2><i class="fas fa-user-md"></i> কৃষি বিশেষজ্ঞকে প্রশ্ন করুন</h2>
+        
+        <form id="expertForm" enctype="multipart/form-data" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <input type="text" name="crop_name" placeholder="ফসলের নাম (যেমন: টমেটো)" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+            <textarea name="question" placeholder="আপনার সমস্যাটি বিস্তারিত লিখুন..." required style="width: 100%; padding: 10px; height: 100px; margin-bottom: 15px;"></textarea>
+            <input type="file" name="image" accept="image/*" style="margin-bottom: 15px;">
+            <button type="submit" style="background: #2d5a27; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">প্রশ্ন জমা দিন</button>
+        </form>
+
+        <h3 style="margin-top: 40px;">আপনার আগের প্রশ্নসমূহ</h3>
+        <div id="qa-history"></div>
+    </div>
+
+    <script src="../assets/js/expert.js"></script>
+</body>
+</html>

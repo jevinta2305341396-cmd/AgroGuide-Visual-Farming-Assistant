@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const usernameInput = document.getElementById('username').value;
             const passwordInput = document.getElementById('password').value;
             
-            messageBox.innerText = "";
+            messageBox.innerText = "অপেক্ষা করুন...";
+            messageBox.style.color = "#333";
 
             try {
                 const response = await fetch('http://127.0.0.1:8000/api/login/', {
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     
                     messageBox.style.color = "green";
-                    messageBox.innerText = "Login Successful! Loading Dashboard...";
+                    messageBox.innerText = "লগইন সফল হয়েছে! ড্যাশবোর্ডে নিয়ে যাওয়া হচ্ছে...";
                     
                     setTimeout(() => {
                         window.location.href = '../../dashboard.html';

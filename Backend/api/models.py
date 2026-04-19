@@ -46,3 +46,22 @@ class CropDetails(models.Model):
 
     def __str__(self):
         return self.name
+    from django.db import models
+from django.contrib.auth.models import User
+
+class ExpertQuestion(models.Model):
+    STATUS_CHOICES = [
+        ('Pending', 'Pending'),
+        ('Answered', 'Answered'),
+    ]
+
+    farmer = models.ForeignKey(User, on_delete=models.CASCADE)
+    crop_name = models.CharField(max_length=100)
+    question = models.TextField()
+    image = models.ImageField(upload_url='expert_queries/', blank=True, null=True)
+    expert_reply = models.TextField(blank=True, null=True)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.crop_name} - {self.status}"
