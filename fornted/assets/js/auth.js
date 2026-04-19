@@ -1,27 +1,34 @@
+// assets/js/auth.js
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     
     if (loginForm) {
-        const messageBox = document.createElement('p');
-        messageBox.style.textAlign = "center";
-        messageBox.style.fontWeight = "bold";
-        messageBox.style.marginTop = "10px";
-        loginForm.appendChild(messageBox);
-
         loginForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
+            e.preventDefault(); // ফর্মের ডিফল্ট রিলোড হওয়া বন্ধ করা
             
+            // ইনপুট থেকে ইউজারনেম এবং পাসওয়ার্ড নেওয়া
             const usernameInput = document.getElementById('username').value;
             const passwordInput = document.getElementById('password').value;
             
-            messageBox.innerText = "অপেক্ষা করুন...";
-            messageBox.style.color = "#333";
+            // একটি মেসেজ দেখানোর জন্য এলিমেন্ট তৈরি করা
+            let messageBox = document.getElementById('login-message');
+            if (!messageBox) {
+                messageBox = document.createElement('p');
+                messageBox.id = 'login-message';
+                messageBox.style.fontWeight = 'bold';
+                messageBox.style.textAlign = 'center';
+                loginForm.appendChild(messageBox);
+            }
+
+            messageBox.innerText = "লগইন চেক করা হচ্ছে...";
+            messageBox.style.color = "blue";
 
             try {
+                // জ্যাঙ্গো ব্যাকএন্ডে রিকোয়েস্ট পাঠানো
                 const response = await fetch('http://127.0.0.1:8000/api/login/', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
                         username: usernameInput,
@@ -29,26 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
                 });
 
+                const data = await response.json();
+
                 if (response.ok) {
-                    const data = await response.json();
+                    // লগইন সফল হলে টোকেন সেভ করা
+                    localStorage.setItem('agro_token', data.token);
                     
-                    if(data.token) {
-                        localStorage.setItem('agro_token', data.token);
-                    }
-                    
+                    messageBox.innerText = "Login Successful! Loading Dashboard...";
                     messageBox.style.color = "green";
-                    messageBox.innerText = "লগইন সফল হয়েছে! ড্যাশবোর্ডে নিয়ে যাওয়া হচ্ছে...";
-                    
+
+                    // ১.৫ সেকেন্ড পর ড্যাশবোর্ডে নিয়ে যাওয়া
                     setTimeout(() => {
-                        window.location.href = '../../dashboard.html';
+                        // আপনার HTML ফাইলগুলো কোথায় আছে তার ওপর ভিত্তি করে লিংকটি ঠিক করে নিতে হতে পারে
+                        window.location.href = '../../dashboard.html'; 
                     }, 1500);
                 } else {
+                    // ইউজারনেম বা পাসওয়ার্ড ভুল হলে
+                    messageBox.innerText = "ইউজারনেম বা পাসওয়ার্ড ভুল হয়েছে!";
                     messageBox.style.color = "red";
-                    messageBox.innerText = "ভুল ইউজারনেম বা পাসওয়ার্ড! আবার চেষ্টা করুন।";
                 }
             } catch (error) {
-                messageBox.style.color = "red";
+                console.error("Error connecting to server:", error);
                 messageBox.innerText = "সার্ভারের সাথে কানেক্ট করা যাচ্ছে না। জ্যাঙ্গো সার্ভার চালু আছে কিনা চেক করুন।";
+                messageBox.style.color = "red";
             }
         });
     }
